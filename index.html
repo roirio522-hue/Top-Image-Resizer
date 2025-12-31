@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Image Resizer | Professional Online Photo Tool</title>
+    <meta name="description" content="Free online Image Resizer tool. Resize your photos to any dimension with instant preview and fast download.">
+    <meta name="keywords" content="Image Resizer, Photo Resize, Online Image Tool, Crop Image, Resize Photo to Pixels">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        body { background-color: #0f172a; color: white; font-family: 'Inter', sans-serif; }
+        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        .loader {
+            width: 35px; height: 35px; border: 4px solid #334155; border-top: 4px solid #3b82f6;
+            border-radius: 50%; animation: spin 1s linear infinite; display: none; margin: 10px auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        #finalPreview img { 
+            max-height: 250px; border: 3px solid #3b82f6; border-radius: 15px; 
+            margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+
+    <div class="glass-card w-full max-w-lg p-8 rounded-[2.5rem] shadow-2xl">
+        <div class="text-center mb-6">
+            <h1 class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 italic">IMAGE RESIZER</h1>
+            <p class="text-slate-400 text-xs tracking-widest uppercase mt-1">Free & Fast Online Tool</p>
+        </div>
+
+        <div id="uploadContainer" class="border-2 border-dashed border-slate-600 rounded-2xl p-8 text-center cursor-pointer hover:border-blue-500 hover:bg-blue-500/5 transition-all mb-6">
+            <input type="file" id="imageInput" accept="image/*" class="hidden">
+            <div id="uploadPrompt">
+                <i class="fas fa-image text-4xl text-blue-500 mb-3"></i>
+                <p class="text-slate-300 font-semibold">Click to Select Photo</p>
+            </div>
+            <div id="uploadLoader" class="loader"></div>
+            <p id="uploadStatus" class="hidden text-green-400 font-bold mt-2 uppercase text-sm">
+                <i class="fas fa-check-circle mr-1"></i> Upload Done
+            </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mb-6">
+            <div>
+                <label class="text-[10px] font-bold text-slate-500 uppercase ml-1">Width (px)</label>
+                <input type="number" id="widthInput" placeholder="1080" class="w-full bg-slate-800 border border-slate-700 p-4 rounded-xl focus:outline-none focus:border-blue-500 mt-1">
+            </div>
+            <div>
+                <label class="text-[10px] font-bold text-slate-500 uppercase ml-1">Height (px)</label>
+                <input type="number" id="heightInput" placeholder="1080" class="w-full bg-slate-800 border border-slate-700 p-4 rounded-xl focus:outline-none focus:border-blue-500 mt-1">
+            </div>
+        </div>
+
+        <button onclick="processImage()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-xl shadow-lg transition-all active:scale-95">
+            RESIZE & PREVIEW
+        </button>
+
+        <div id="finalSection" class="hidden text-center border-t border-slate-700 mt-8 pt-6">
+            <p class="text-xs text-blue-400 mb-4 font-bold uppercase tracking-widest italic">New Preview Ready</p>
+            <div id="finalPreview" class="mb-6 flex justify-center"></div>
+            <a id="downloadLink" href="#" class="inline-flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-400 text-white font-black py-4 rounded-xl transition-all shadow-xl">
+                <i class="fas fa-download"></i> DOWNLOAD NOW
+            </a>
+        </div>
+    </div>
+
+    <div id="toast" class="fixed top-10 bg-white text-black px-8 py-3 rounded-full font-bold shadow-2xl hidden z-50 flex items-center gap-2">
+        <i class="fas fa-check-circle text-green-500"></i> Success! Resetting...
+    </div>
+
+    <canvas id="canvas" class="hidden"></canvas>
+
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const uploadContainer = document.getElementById('uploadContainer');
+        const uploadPrompt = document.getElementById('uploadPrompt');
+        const uploadLoader = document.getElementById('uploadLoader');
+        const uploadStatus = document.getElementById('uploadStatus');
+        const finalSection = document.getElementById('finalSection');
+        const finalPreview = document.getElementById('finalPreview');
+        const downloadLink = document.getElementById('downloadLink');
+
+        uploadContainer.onclick = () => imageInput.click();
+
+        imageInput.onchange = function() {
+            if (this.files[0]) {
+                uploadPrompt.classList.add('hidden');
+                uploadLoader.style.display = 'block';
+                uploadStatus.classList.add('hidden');
+                setTimeout(() => {
+                    uploadLoader.style.display = 'none';
+                    uploadStatus.classList.remove('hidden');
+                }, 1200); 
+            }
+        };
+
+        function processImage() {
+            const file = imageInput.files[0];
+            const w = document.getElementById('widthInput').value;
+            const h = document.getElementById('heightInput').value;
+
+            if (!file || !w || !h) { alert("Please complete the form!"); return; }
+
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function(e) {
+                const img = new Image();
+                img.src = e.target.result;
+                img.onload = function() {
+                    const canvas = document.getElementById('canvas');
+                    const ctx = canvas.getContext('2d');
+                    canvas.width = w;
+                    canvas.height = h;
+                    ctx.drawImage(img, 0, 0, w, h);
+                    
+                    const dataUrl = canvas.toDataURL('image/png');
+                    finalPreview.innerHTML = `<img src="${dataUrl}" alt="Preview">`;
+                    downloadLink.href = dataUrl;
+                    downloadLink.setAttribute('download', 'ImageResizer_Result.png');
+                    finalSection.classList.remove('hidden');
+                    
+                    showToast();
+                }
+            }
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.style.display = 'flex';
+            setTimeout(() => {
+                toast.style.display = 'none';
+                // Resetting for next use after 1 second
+                // imageInput.value = ""; 
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
