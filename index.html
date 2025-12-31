@@ -37,7 +37,7 @@
         input[type=range]::-webkit-slider-thumb { appearance: none; width: 18px; height: 18px; background: #3b82f6; border-radius: 50%; cursor: pointer; }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-6">
+<body class="min-h-screen flex flex-col items-center justify-center p-6">
 
     <div class="glass-card w-full max-w-xl p-8 rounded-[2.5rem] shadow-2xl my-10">
         <div class="text-center mb-6">
@@ -91,9 +91,23 @@
         </div>
     </div>
 
+    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px; width: 100%; min-height: 50px;">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : 'b0bdcbdd657cea775717da0ba761e5db',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="https://www.highperformanceformat.com/b0bdcbdd657cea775717da0ba761e5db/invoke.js"></script>
+    </div>
+
     <canvas id="canvas" class="hidden"></canvas>
 
     <script>
+        // আপনার আগের স্ক্রিপ্টগুলো এখানে থাকবে (পরিবর্তন করা হয়নি)
         const imageInput = document.getElementById('imageInput');
         const uploadContainer = document.getElementById('uploadContainer');
         const uploadPrompt = document.getElementById('uploadPrompt');
@@ -152,7 +166,6 @@
                         canvas.width = w;
                         canvas.height = h;
                         ctx.drawImage(img, 0, 0, w, h);
-                        // quality only works for jpeg and webp
                         const finalDataUrl = canvas.toDataURL(`image/${format}`, quality);
                         resolve(finalDataUrl);
                     };
