@@ -14,8 +14,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Images Resizer Pro | Bulk Resize & Quality Control</title>
-    <meta name="description" content="Images Resizer Pro: Free online bulk image resizer with adjustable quality control.">
+    <title>Images Resizer Pro | Best Bulk Photo Resize & Quality Tool Online</title>
+    <meta name="description" content="Images Resizer Pro: The best free tool to resize multiple images at once. Adjust quality, convert to JPG, PNG, or WebP with fast batch processing. No upload limits!">
+    <meta name="keywords" content="Bulk Image Resizer, Batch Photo Resize, Image Quality Control, JPG to WebP Converter, Online Image Tool, Free Photo Resizer">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -32,12 +33,13 @@
             max-height: 150px; border: 2px solid #3b82f6; border-radius: 10px; 
             margin: 0 auto; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
-        /* Slider Styling */
         input[type=range] { width: 100%; height: 6px; background: #334155; border-radius: 5px; outline: none; appearance: none; }
         input[type=range]::-webkit-slider-thumb { appearance: none; width: 18px; height: 18px; background: #3b82f6; border-radius: 50%; cursor: pointer; }
+        .seo-content h2 { color: #60a5fa; font-weight: bold; font-size: 1.25rem; margin-bottom: 1rem; italic; }
+        .seo-content p { color: #94a3b8; font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.5rem; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center p-6">
+<body class="min-h-screen flex flex-col items-center p-6">
 
     <div class="glass-card w-full max-w-xl p-8 rounded-[2.5rem] shadow-2xl my-10">
         <div class="text-center mb-6">
@@ -70,9 +72,9 @@
             <div>
                 <label class="text-[10px] font-bold text-slate-500 uppercase ml-1">Format</label>
                 <select id="formatSelect" class="w-full bg-slate-800 border border-slate-700 p-4 rounded-xl focus:outline-none text-white mt-1">
-                    <option value="jpeg">JPG (Best for Quality Control)</option>
-                    <option value="webp">WebP (Smallest Size)</option>
-                    <option value="png">PNG (No Loss)</option>
+                    <option value="jpeg">JPG</option>
+                    <option value="webp">WebP</option>
+                    <option value="png">PNG</option>
                 </select>
             </div>
             <div>
@@ -91,6 +93,17 @@
         </div>
     </div>
 
+    <div class="w-full max-w-2xl seo-content bg-slate-900/50 p-8 rounded-3xl border border-slate-800 mb-10">
+        <h2>Professional Bulk Image Resizing Tool</h2>
+        <p>Welcome to <strong>Images Resizer Pro</strong>, the ultimate online solution for fast and efficient batch photo resizing. Whether you are a web developer looking to optimize images for SEO or a social media manager needing specific dimensions, our tool provides a seamless experience without compromising on quality.</p>
+        
+        <h2>How to Resize Images Without Losing Quality?</h2>
+        <p>Our advanced <strong>Quality Control</strong> slider allows you to maintain the perfect balance between file size and clarity. By selecting the <strong>WebP</strong> format, you can significantly reduce image weight, which helps in faster website loading and better ranking on Google search results.</p>
+        
+        <h2>Why Choose Images Resizer Pro?</h2>
+        <p>Unlike other online tools, we process all images locally in your browser. This means your private photos are never uploaded to any server, ensuring 100% privacy and security. You can process hundreds of images instantly as <strong>Bulk Resize</strong> is fully supported.</p>
+    </div>
+
     <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px; width: 100%; min-height: 50px;">
         <script type="text/javascript">
             atOptions = {
@@ -104,10 +117,13 @@
         <script type="text/javascript" src="https://www.highperformanceformat.com/b0bdcbdd657cea775717da0ba761e5db/invoke.js"></script>
     </div>
 
+    <footer class="text-slate-600 text-[10px] uppercase tracking-widest mb-10">
+        &copy; 2025 Images Resizer Pro | Optimized for Speed & SEO
+    </footer>
+
     <canvas id="canvas" class="hidden"></canvas>
 
     <script>
-        // আপনার আগের স্ক্রিপ্টগুলো এখানে থাকবে (পরিবর্তন করা হয়নি)
         const imageInput = document.getElementById('imageInput');
         const uploadContainer = document.getElementById('uploadContainer');
         const uploadPrompt = document.getElementById('uploadPrompt');
@@ -152,7 +168,7 @@
                 createPreviewCard(dataUrl, file.name, format);
             }
             
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            window.scrollTo({ top: finalSection.offsetTop, behavior: 'smooth' });
         }
 
         function resizeImage(file, w, h, format, quality) {
@@ -166,7 +182,7 @@
                         canvas.width = w;
                         canvas.height = h;
                         ctx.drawImage(img, 0, 0, w, h);
-                        const finalDataUrl = canvas.toDataURL(`image/${format}`, quality);
+                        const finalDataUrl = canvas.toDataURL(`image/${format === 'jpeg' ? 'jpeg' : format}`, quality);
                         resolve(finalDataUrl);
                     };
                     img.src = e.target.result;
