@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Images Resizer Pro | Professional Bulk Photo Tool</title>
-    <meta name="description" content="Images Resizer Pro: Free online bulk image resizer. Resize multiple photos and convert to JPG, PNG, or WebP instantly.">
+    <title>Images Resizer Pro | Bulk Resize & Quality Control</title>
+    <meta name="description" content="Images Resizer Pro: Free online bulk image resizer with adjustable quality control.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -32,6 +32,9 @@
             max-height: 150px; border: 2px solid #3b82f6; border-radius: 10px; 
             margin: 0 auto; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
+        /* Slider Styling */
+        input[type=range] { width: 100%; height: 6px; background: #334155; border-radius: 5px; outline: none; appearance: none; }
+        input[type=range]::-webkit-slider-thumb { appearance: none; width: 18px; height: 18px; background: #3b82f6; border-radius: 50%; cursor: pointer; }
     </style>
 </head>
 <body class="min-h-screen flex items-center justify-center p-6">
@@ -39,7 +42,7 @@
     <div class="glass-card w-full max-w-xl p-8 rounded-[2.5rem] shadow-2xl my-10">
         <div class="text-center mb-6">
             <h1 class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 italic uppercase">Images Resizer Pro</h1>
-            <p class="text-slate-400 text-xs tracking-widest uppercase mt-1">Multi-Image & Format Support</p>
+            <p class="text-slate-400 text-xs tracking-widest uppercase mt-1">Bulk Resize & Quality Control</p>
         </div>
 
         <div id="uploadContainer" class="border-2 border-dashed border-slate-600 rounded-2xl p-8 text-center cursor-pointer hover:border-blue-500 hover:bg-blue-500/5 transition-all mb-6">
@@ -63,13 +66,19 @@
             </div>
         </div>
 
-        <div class="mb-6">
-            <label class="text-[10px] font-bold text-slate-500 uppercase ml-1">Convert To Format</label>
-            <select id="formatSelect" class="w-full bg-slate-800 border border-slate-700 p-4 rounded-xl focus:outline-none focus:border-blue-500 mt-1 text-white">
-                <option value="png">PNG (Lossless)</option>
-                <option value="jpeg">JPG (Small Size)</option>
-                <option value="webp">WebP (Next-Gen)</option>
-            </select>
+        <div class="grid grid-cols-2 gap-4 mb-6">
+            <div>
+                <label class="text-[10px] font-bold text-slate-500 uppercase ml-1">Format</label>
+                <select id="formatSelect" class="w-full bg-slate-800 border border-slate-700 p-4 rounded-xl focus:outline-none text-white mt-1">
+                    <option value="jpeg">JPG (Best for Quality Control)</option>
+                    <option value="webp">WebP (Smallest Size)</option>
+                    <option value="png">PNG (No Loss)</option>
+                </select>
+            </div>
+            <div>
+                <label class="text-[10px] font-bold text-slate-500 uppercase ml-1">Quality: <span id="qVal" class="text-blue-400">80</span>%</label>
+                <input type="range" id="qualityInput" min="1" max="100" value="80" class="mt-4" oninput="document.getElementById('qVal').innerText = this.value">
+            </div>
         </div>
 
         <button onclick="processImages()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-xl shadow-lg transition-all active:scale-95 uppercase">
@@ -114,6 +123,7 @@
             const w = document.getElementById('widthInput').value;
             const h = document.getElementById('heightInput').value;
             const format = document.getElementById('formatSelect').value;
+            const quality = document.getElementById('qualityInput').value / 100;
 
             if (files.length === 0 || !w || !h) { 
                 alert("Please select images and enter dimensions!"); 
@@ -124,14 +134,14 @@
             finalSection.classList.remove('hidden');
 
             for (let file of files) {
-                const dataUrl = await resizeImage(file, w, h, format);
+                const dataUrl = await resizeImage(file, w, h, format, quality);
                 createPreviewCard(dataUrl, file.name, format);
             }
             
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
 
-        function resizeImage(file, w, h, format) {
+        function resizeImage(file, w, h, format, quality) {
             return new Promise((resolve) => {
                 const reader = new FileReader();
                 reader.onload = (e) => {
@@ -142,7 +152,9 @@
                         canvas.width = w;
                         canvas.height = h;
                         ctx.drawImage(img, 0, 0, w, h);
-                        resolve(canvas.toDataURL(`image/${format === 'jpeg' ? 'jpeg' : format}`));
+                        // quality only works for jpeg and webp
+                        const finalDataUrl = canvas.toDataURL(`image/${format}`, quality);
+                        resolve(finalDataUrl);
                     };
                     img.src = e.target.result;
                 };
@@ -157,7 +169,7 @@
             card.innerHTML = `
                 <div class="mb-3 flex justify-center"><img src="${url}"></div>
                 <p class="text-[10px] text-slate-400 truncate mb-3 px-2">${name}</p>
-                <a href="${url}" download="Resized_${name.split('.')[0]}.${extension}" 
+                <a href="${url}" download="ProResized_${name.split('.')[0]}.${extension}" 
                    class="inline-block w-full bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-lg text-sm transition-all">
                    <i class="fas fa-download mr-1"></i> DOWNLOAD ${extension.toUpperCase()}
                 </a>
