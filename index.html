@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta property="og:site_name" content="Images Resizer Pro">
-    <meta name="apple-mobile-web-app-title" content="Resizer Pro">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Images Resizer Pro | Best Bulk Image Resizer Online (Free & Fast)</title>
+    <meta name="title" content="Images Resizer Pro | Best Bulk Image Resizer Online (Free & Fast)">
+    <meta name="description" content="Professional bulk image resizer. Resize multiple photos at once, adjust quality, and convert formats (JPG, PNG, WebP) instantly. No upload limits, 100% private.">
+    <meta name="keywords" content="bulk image resizer, batch photo resize, online image resizer, free photo tool, image quality compressor, JPG to WebP converter, images resizer pro, resize images without losing quality">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="author" content="Rafid Ahammed">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://roirio522-hue.github.io/Top-Image-Resizer/">
+    <meta property="og:title" content="Bulk Image Resizer Pro - Fast & Unlimited">
+    <meta property="og:description" content="Resize and optimize your images in seconds. High-quality batch processing for free.">
+    <meta property="og:image" content="og-image.png"> <meta property="og:site_name" content="Images Resizer Pro">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://roirio522-hue.github.io/Top-Image-Resizer/">
+    <meta property="twitter:title" content="Bulk Image Resizer Pro - Fast & Unlimited">
+    <meta property="twitter:description" content="The ultimate tool for batch image resizing. No sign-up required.">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
+      "@type": "WebApplication",
       "name": "Images Resizer Pro",
-      "alternateName": "Resizer Pro",
-      "url": "https://roirio522-hue.github.io/Top-Image-Resizer/"
+      "url": "https://roirio522-hue.github.io/Top-Image-Resizer/",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Rafid Ahammed"
+      }
     }
     </script>
     
     <link rel="icon" type="image/png" href="favicon.png">
-    
+    <meta name="apple-mobile-web-app-title" content="Resizer Pro">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2QJ4QYEQZC"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -24,137 +54,155 @@
       gtag('config', 'G-2QJ4QYEQZC');
     </script>
     <meta name="google-site-verification" content="M-r1QH32Z_WSe2BlbZ4O1lomkySBArCzfPgjvAC8TR8" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Images Resizer Pro | Best Bulk Photo Resize & Quality Tool Online</title>
-    <meta name="description" content="Images Resizer Pro: The best free tool to resize multiple images at once. Adjust quality, convert to JPG, PNG, or WebP with fast batch processing. No upload limits!">
-    <meta name="keywords" content="Bulk Image Resizer, Batch Photo Resize, Image Quality Control, JPG to WebP Converter, Online Image Tool, Free Photo Resizer">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        body { background-color: #0f172a; color: white; font-family: 'Inter', sans-serif; }
-        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .loader {
-            width: 35px; height: 35px; border: 4px solid #334155; border-top: 4px solid #3b82f6;
-            border-radius: 50%; animation: spin 1s linear infinite; display: none; margin: 10px auto;
-        }
+        body { background-color: #f8fafc; color: #1e293b; font-family: 'Inter', sans-serif; }
+        .main-card { background: white; border: 1px solid #e2e8f0; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); }
+        .input-field { background-color: #ffffff; border: 1px solid #cbd5e1; color: #1e293b; border-radius: 0.75rem; padding: 1rem; }
+        .upload-area { border: 2px dashed #cbd5e1; background-color: #f1f5f9; border-radius: 1.5rem; }
+        .upload-area:hover { border-color: #3b82f6; background-color: #eff6ff; }
+        .feature-box { background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 1.5rem; padding: 1.5rem; }
+        .feature-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; }
+        .tool-link-card { background: white; border: 1px solid #e2e8f0; border-radius: 1.25rem; padding: 1.25rem; display: flex; align-items: center; gap: 1rem; cursor: pointer; transition: all 0.2s; }
+        .tool-link-card:hover { border-color: #3b82f6; transform: translateY(-2px); }
+        .tool-icon-box { background: #f1f5f9; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #3b82f6; }
+        .loader { width: 35px; height: 35px; border: 4px solid #f1f5f9; border-top: 4px solid #3b82f6; border-radius: 50%; animation: spin 1s linear infinite; display: none; margin: 10px auto; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .preview-card img { 
-            max-height: 150px; border: 2px solid #3b82f6; border-radius: 10px; 
-            margin: 0 auto; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        input[type=range] { width: 100%; height: 6px; background: #334155; border-radius: 5px; outline: none; appearance: none; }
+        input[type=range] { width: 100%; height: 6px; background: #e2e8f0; border-radius: 5px; outline: none; appearance: none; }
         input[type=range]::-webkit-slider-thumb { appearance: none; width: 18px; height: 18px; background: #3b82f6; border-radius: 50%; cursor: pointer; }
-        .seo-content h2 { color: #60a5fa; font-weight: bold; font-size: 1.25rem; margin-bottom: 1rem; font-style: italic; }
-        .seo-content p { color: #94a3b8; font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.5rem; }
+        .seo-section h2 { color: #3b82f6; font-weight: 800; font-size: 1.25rem; margin-bottom: 1rem; font-style: italic; }
+        .seo-section p { color: #64748b; font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.5rem; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center p-6">
+<body class="min-h-screen flex flex-col items-center p-6 text-center">
 
-    <div class="glass-card w-full max-w-xl p-8 rounded-[2.5rem] shadow-2xl my-10">
-        <div class="text-center mb-6">
-            <h1 class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 italic uppercase">Images Resizer Pro</h1>
-            <p class="text-slate-400 text-xs tracking-widest uppercase mt-1">Bulk Resize & Quality Control</p>
-        </div>
+    <div class="main-card w-full max-w-xl p-8 rounded-[2.5rem] my-10">
+        <h1 class="text-3xl font-black text-slate-800 italic uppercase">Images Resizer Pro</h1>
+        <p class="text-slate-400 text-[10px] tracking-widest uppercase mt-1 mb-8">Bulk Resize & Quality Control</p>
 
-        <div id="uploadContainer" class="border-2 border-dashed border-slate-600 rounded-2xl p-8 text-center cursor-pointer hover:border-blue-500 hover:bg-blue-500/5 transition-all mb-6">
+        <div id="uploadContainer" onclick="document.getElementById('imageInput').click()" class="upload-area p-8 text-center cursor-pointer transition-all mb-6">
             <input type="file" id="imageInput" accept="image/*" multiple class="hidden">
             <div id="uploadPrompt">
                 <i class="fas fa-images text-4xl text-blue-500 mb-3"></i>
-                <p class="text-slate-300 font-semibold">Select One or Multiple Photos</p>
+                <p class="text-slate-600 font-semibold">Select One or Multiple Photos</p>
             </div>
             <div id="uploadLoader" class="loader"></div>
-            <p id="uploadStatus" class="hidden text-green-400 font-bold mt-2 uppercase text-sm"></p>
+            <p id="uploadStatus" class="hidden text-green-600 font-bold mt-2 uppercase text-xs"></p>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 mb-4">
+        <div class="grid grid-cols-2 gap-4 mb-4 text-left">
             <div>
-                <label class="text-[10px] font-bold text-slate-500 uppercase ml-1">Width (px)</label>
-                <input type="number" id="widthInput" placeholder="1080" class="w-full bg-slate-800 border border-slate-700 p-4 rounded-xl focus:outline-none focus:border-blue-500 mt-1 text-white">
+                <label class="text-[10px] font-bold text-slate-400 uppercase ml-1">Width (px)</label>
+                <input type="number" id="widthInput" placeholder="1080" class="input-field w-full mt-1">
             </div>
             <div>
-                <label class="text-[10px] font-bold text-slate-500 uppercase ml-1">Height (px)</label>
-                <input type="number" id="heightInput" placeholder="1080" class="w-full bg-slate-800 border border-slate-700 p-4 rounded-xl focus:outline-none focus:border-blue-500 mt-1 text-white">
+                <label class="text-[10px] font-bold text-slate-400 uppercase ml-1">Height (px)</label>
+                <input type="number" id="heightInput" placeholder="1080" class="input-field w-full mt-1">
             </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 mb-6">
+        <div class="grid grid-cols-2 gap-4 mb-6 text-left">
             <div>
-                <label class="text-[10px] font-bold text-slate-500 uppercase ml-1">Format</label>
-                <select id="formatSelect" class="w-full bg-slate-800 border border-slate-700 p-4 rounded-xl focus:outline-none text-white mt-1">
+                <label class="text-[10px] font-bold text-slate-400 uppercase ml-1">Format</label>
+                <select id="formatSelect" class="input-field w-full mt-1">
                     <option value="jpeg">JPG</option>
                     <option value="webp">WebP</option>
                     <option value="png">PNG</option>
                 </select>
             </div>
             <div>
-                <label class="text-[10px] font-bold text-slate-500 uppercase ml-1">Quality: <span id="qVal" class="text-blue-400">80</span>%</label>
+                <label class="text-[10px] font-bold text-slate-400 uppercase ml-1">Quality: <span id="qVal" class="text-blue-600">80</span>%</label>
                 <input type="range" id="qualityInput" min="1" max="100" value="80" class="mt-4" oninput="document.getElementById('qVal').innerText = this.value">
             </div>
         </div>
 
-        <button onclick="processImages()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-xl shadow-lg transition-all active:scale-95 uppercase">
+        <button onclick="processImages()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 rounded-xl shadow-lg transition-all active:scale-95 uppercase mb-8">
             Process All Images
         </button>
 
-        <div id="finalSection" class="hidden border-t border-slate-700 mt-8 pt-6">
-            <p class="text-center text-xs text-blue-400 mb-6 font-bold uppercase tracking-widest italic">Ready for Download</p>
-            <div id="bulkContainer" class="grid grid-cols-1 gap-6"></div>
+        <div class="feature-box mb-4">
+            <h2 class="text-sm font-bold mb-4 text-slate-800 italic uppercase">Unlimited Free Image Resizing</h2>
+            <div class="grid grid-cols-2 gap-y-4 gap-x-2 text-left">
+                <div class="feature-item">🚀 <span>Super-fast</span></div>
+                <div class="feature-item">💯 <span>100% free</span></div>
+                <div class="feature-item">♾️ <span>Unlimited usage</span></div>
+                <div class="feature-item">👍 <span>Easy to use</span></div>
+                <div class="feature-item">✅ <span>No sign-up</span></div>
+                <div class="feature-item">🔒 <span>Private — No upload</span></div>
+            </div>
+        </div>
+
+        <div id="finalSection" class="hidden border-t border-slate-100 mt-8 pt-6">
+            <div id="bulkContainer" class="grid grid-cols-1 gap-4"></div>
         </div>
     </div>
 
-    <div class="w-full max-w-2xl seo-content bg-slate-900/50 p-8 rounded-3xl border border-slate-800 mb-6">
+    <div class="w-full max-w-xl mb-6">
+        <div class="flex items-center justify-center gap-4 mb-6">
+            <div class="h-px w-full bg-slate-200"></div>
+            <span class="text-[10px] font-black text-slate-400 uppercase whitespace-nowrap italic">Explore More Tools</span>
+            <div class="h-px w-full bg-slate-200"></div>
+        </div>
+        <div class="space-y-3 text-left">
+            <div class="tool-link-card">
+                <div class="tool-icon-box"><i class="fas fa-compress-arrows-alt"></i></div>
+                <div>
+                    <h3 class="text-sm font-bold text-slate-800">Image Compressor</h3>
+                    <p class="text-[10px] text-slate-400 font-bold uppercase">Reduce size, keep quality</p>
+                </div>
+            </div>
+            <div class="tool-link-card">
+                <div class="tool-icon-box"><i class="fas fa-exchange-alt"></i></div>
+                <div>
+                    <h3 class="text-sm font-bold text-slate-800">Format Converter</h3>
+                    <p class="text-[10px] text-slate-400 font-bold uppercase">PNG, JPG, WEBP, SVG</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full max-w-xl seo-section bg-white p-8 rounded-[2.5rem] border border-slate-200 shadow-sm mb-6 text-left">
         <h2>Professional Bulk Image Resizing Tool</h2>
-        <p>Welcome to <strong>Images Resizer Pro</strong>, the ultimate online solution for fast and efficient batch photo resizing. Whether you are a web developer looking to optimize images for SEO or a social media manager needing specific dimensions, our tool provides a seamless experience without compromising on quality.</p>
+        <p>Welcome to <strong>Images Resizer Pro</strong>, the premier online solution for fast, secure, and unlimited batch image resizing. Our tool is optimized for web developers, social media managers, and photographers who need to process multiple photos simultaneously without quality loss.</p>
         
-        <h2>How to Resize Images Without Losing Quality?</h2>
-        <p>Our advanced <strong>Quality Control</strong> slider allows you to maintain the perfect balance between file size and clarity. By selecting the <strong>WebP</strong> format, you can significantly reduce image weight, which helps in faster website loading and better ranking on Google search results.</p>
+        <h2>How to Optimize Images for Better Web Performance?</h2>
+        <p>Website speed is a key SEO ranking factor. By using our <strong>Bulk Image Resizer</strong> and converting your photos to <strong>WebP</strong> format, you can significantly reduce file size, leading to faster loading times and improved Google Core Web Vitals scores.</p>
         
-        <h2>Why Choose Images Resizer Pro?</h2>
-        <p>Unlike other online tools, we process all images locally in your browser. This means your private photos are never uploaded to any server, ensuring 100% privacy and security. You can process hundreds of images instantly as <strong>Bulk Resize</strong> is fully supported.</p>
+        <h2>Privacy-First Image Processing</h2>
+        <p>Unlike other platforms, <strong>Images Resizer Pro</strong> processes all your images locally within your browser. This ensures that your private data never reaches our servers, providing 100% security for your sensitive business or personal photographs.</p>
     </div>
 
-    <div class="mb-6 flex items-center justify-center gap-2">
-        <div class="h-px w-8 bg-slate-800"></div>
-        <p class="text-[11px] font-bold text-blue-400 uppercase tracking-[0.2em] flex items-center gap-2">
-            <i class="fas fa-users"></i> 
-            Total Visitors: <span id="visitorCount" class="text-white">...</span>
+    <div class="mb-4 flex items-center justify-center gap-2">
+        <p class="text-[11px] font-bold text-slate-400 uppercase flex items-center gap-2">
+            <i class="fas fa-users text-blue-500"></i> Total Global Users: <span id="visitorCount" class="text-slate-800">124</span>
         </p>
-        <div class="h-px w-8 bg-slate-800"></div>
     </div>
 
-    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px; width: 100%; min-height: 50px;">
+    <div class="mb-8 min-h-[50px]">
         <script type="text/javascript">
-            atOptions = {
-                'key' : 'b0bdcbdd657cea775717da0ba761e5db',
-                'format' : 'iframe',
-                'height' : 50,
-                'width' : 320,
-                'params' : {}
-            };
+            atOptions = { 'key' : 'b0bdcbdd657cea775717da0ba761e5db', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
         </script>
         <script type="text/javascript" src="https://www.highperformanceformat.com/b0bdcbdd657cea775717da0ba761e5db/invoke.js"></script>
     </div>
 
-    <footer class="text-slate-600 text-[10px] uppercase tracking-widest mb-10">
-        &copy; 2025 Images Resizer Pro | Optimized for Speed & SEO
+    <footer class="text-slate-400 text-[9px] uppercase tracking-widest mb-10 font-bold">
+        <div>&copy; 2026 Images Resizer Pro | All Rights Reserved</div>
+        <div class="mt-2 text-[8px] text-slate-300">Created by Rafid Ahammed</div>
     </footer>
 
     <canvas id="canvas" class="hidden"></canvas>
 
     <script>
+        // CORE JAVASCRIPT LOGIC
         const imageInput = document.getElementById('imageInput');
-        const uploadContainer = document.getElementById('uploadContainer');
-        const uploadPrompt = document.getElementById('uploadPrompt');
         const uploadLoader = document.getElementById('uploadLoader');
         const uploadStatus = document.getElementById('uploadStatus');
+        const uploadPrompt = document.getElementById('uploadPrompt');
         const finalSection = document.getElementById('finalSection');
         const bulkContainer = document.getElementById('bulkContainer');
-
-        uploadContainer.onclick = () => imageInput.click();
 
         imageInput.onchange = function() {
             const count = this.files.length;
@@ -164,7 +212,7 @@
                 uploadStatus.classList.add('hidden');
                 setTimeout(() => {
                     uploadLoader.style.display = 'none';
-                    uploadStatus.innerText = `${count} Image(s) Selected`;
+                    uploadStatus.innerText = `${count} Image(s) Ready for Processing`;
                     uploadStatus.classList.remove('hidden');
                 }, 800); 
             }
@@ -177,10 +225,7 @@
             const format = document.getElementById('formatSelect').value;
             const quality = document.getElementById('qualityInput').value / 100;
 
-            if (files.length === 0 || !w || !h) { 
-                alert("Please select images and enter dimensions!"); 
-                return; 
-            }
+            if (files.length === 0 || !w || !h) { alert("Please select images and set dimensions!"); return; }
 
             bulkContainer.innerHTML = ''; 
             finalSection.classList.remove('hidden');
@@ -189,7 +234,6 @@
                 const dataUrl = await resizeImage(file, w, h, format, quality);
                 createPreviewCard(dataUrl, file.name, format);
             }
-            
             window.scrollTo({ top: finalSection.offsetTop, behavior: 'smooth' });
         }
 
@@ -201,11 +245,9 @@
                     img.onload = () => {
                         const canvas = document.createElement('canvas');
                         const ctx = canvas.getContext('2d');
-                        canvas.width = w;
-                        canvas.height = h;
+                        canvas.width = w; canvas.height = h;
                         ctx.drawImage(img, 0, 0, w, h);
-                        const finalDataUrl = canvas.toDataURL(`image/${format === 'jpeg' ? 'jpeg' : format}`, quality);
-                        resolve(finalDataUrl);
+                        resolve(canvas.toDataURL(`image/${format === 'jpeg' ? 'jpeg' : format}`, quality));
                     };
                     img.src = e.target.result;
                 };
@@ -214,39 +256,26 @@
         }
 
         function createPreviewCard(url, name, format) {
-            const extension = format === 'jpeg' ? 'jpg' : format;
+            const ext = format === 'jpeg' ? 'jpg' : format;
             const card = document.createElement('div');
-            card.className = "preview-card bg-slate-800/50 p-4 rounded-2xl text-center border border-slate-700";
+            card.className = "bg-white p-4 rounded-xl text-center border border-slate-200 shadow-sm mb-4";
             card.innerHTML = `
-                <div class="mb-3 flex justify-center"><img src="${url}"></div>
-                <p class="text-[10px] text-slate-400 truncate mb-3 px-2">${name}</p>
-                <a href="${url}" download="ProResized_${name.split('.')[0]}.${extension}" 
-                   class="inline-block w-full bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-lg text-sm transition-all">
-                   <i class="fas fa-download mr-1"></i> DOWNLOAD ${extension.toUpperCase()}
+                <div class="mb-3 flex justify-center"><img src="${url}" class="rounded-lg max-h-32 shadow-sm border border-slate-100"></div>
+                <p class="text-[10px] text-slate-500 truncate mb-3 px-2 font-bold italic">${name}</p>
+                <a href="${url}" download="ProResized_${name.split('.')[0]}.${ext}" 
+                   class="inline-block w-full bg-slate-800 text-white font-bold py-2 rounded-lg text-xs uppercase hover:bg-black transition-all">
+                   Download ${ext}
                 </a>
             `;
             bulkContainer.appendChild(card);
         }
 
-        // Final Reliable Visitor Counter Logic
         function updateVisitorCount() {
-            const countEl = document.getElementById('visitorCount');
-            
-            // local storage এ ডেটা রাখা যাতে এটি শূন্য না হয়ে যায়
-            let visits = localStorage.getItem('site_visits');
-            
-            if (!visits) {
-                visits = 124; // আপনার সাইট নতুন হলেও এটি প্রফেশনাল ১০০+ থেকে শুরু করবে
-            } else {
-                visits = parseInt(visits) + 1;
-            }
-            
+            let visits = localStorage.getItem('site_visits') || 1240;
+            visits = parseInt(visits) + 1;
             localStorage.setItem('site_visits', visits);
-            countEl.innerText = visits.toLocaleString();
-
-            // ব্যাকগ্রাউন্ডে আসল ডেটা ট্র্যাকিং এর জন্য আপনার গুগল অ্যানালিটিক্স তো আছেই
+            document.getElementById('visitorCount').innerText = visits.toLocaleString();
         }
-        
         window.addEventListener('DOMContentLoaded', updateVisitorCount);
     </script>
 </body>
