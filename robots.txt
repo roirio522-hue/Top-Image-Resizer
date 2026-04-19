@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://roirio522-hue.github.io/Top-Image-Resizer/sitemap.xml
